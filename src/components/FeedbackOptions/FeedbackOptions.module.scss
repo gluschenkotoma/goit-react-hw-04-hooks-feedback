@@ -1,0 +1,17 @@
+.item {
+  margin: 5px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  background: rgb(87, 133, 202);
+  transition: transform 250ms linear;
+  &:hover {
+    transform: scale(1.2);
+    color: rgb(87, 133, 202);
+    background: white;
+    border: 1px solid rgb(20, 13, 78);
+  }
+}
