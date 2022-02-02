@@ -7,13 +7,18 @@ import Statistics from './components/Statistics';
 import Notification from './components/Notification';
 
 const App = () => {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
-
+  const [feedbackState, setfeedbackState] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
+  const { good, neutral, bad } = feedbackState;
   // фу-я которая плюсует по каждому типу стейта
   const addFeedback = type => {
-    this.setState(prevState => ({ [type]: prevState[type] + 1 }));
+    setfeedbackState(prevState => ({
+      ...prevState,
+      [type]: prevState[type] + 1,
+    }));
     console.log([type]); //['good']
   };
   // фу-я которая плюсует общее ко-во по все типах стейт, тотальное значение кликов по кнопках
@@ -33,7 +38,7 @@ const App = () => {
 
   /* Object.keys() возвращает массив из собственных перечисляемых свойств переданного объекта */
   /* options - чьи собственные перечисляемые свойства будут возвращены */
-  const options = Object.keys(this.state);
+  const options = Object.keys(feedbackState);
   const total = countTotalFeedback();
   return (
     <>
